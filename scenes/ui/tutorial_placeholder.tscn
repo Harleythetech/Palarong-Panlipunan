@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://c2tp8w4mfkv3d"]
+
+[ext_resource type="Texture2D" uid="uid://dbmukcqrf5v1c" path="res://assets/images/backgrounds/bg.png" id="1_bg"]
+[ext_resource type="Script" path="res://scripts/tutorial_placeholder.gd" id="2_script"]
+[ext_resource type="Theme" uid="uid://bjx86n76ee57d" path="res://scenes/Themes/KennyMain.tres" id="3_theme"]
+
+[node name="TutorialPlaceholder" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_script")
+
+[node name="Dynamic_Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.50980395)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(450, 200)
+theme = ExtResource("3_theme")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Title" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+text = "Tutorial"
+
+[node name="Info" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.3, 0.3, 1)
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+text = "Coming Soon..."
+
+[node name="BackButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_theme")
+theme_override_font_sizes/font_size = 14
+text = "Back to Menu"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/BackButton" to="." method="_on_back_pressed"]

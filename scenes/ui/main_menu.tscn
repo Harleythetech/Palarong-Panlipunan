@@ -1,0 +1,328 @@
+[gd_scene format=3 uid="uid://memycltsmlum"]
+
+[ext_resource type="Texture2D" uid="uid://dbmukcqrf5v1c" path="res://assets/images/backgrounds/bg.png" id="1_fe2o3"]
+[ext_resource type="Script" uid="uid://caa5dpmudf5e5" path="res://scripts/main_menu.gd" id="1_m1kxf"]
+[ext_resource type="Texture2D" uid="uid://c5ogukx7surqr" path="res://assets/images/Logo/Possible Logo.png" id="2_1g8jr"]
+[ext_resource type="Theme" uid="uid://bjx86n76ee57d" path="res://scenes/Themes/KennyMain.tres" id="3_theme"]
+
+[node name="MainMenu" type="Control" unique_id=852665166]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m1kxf")
+
+[node name="Dynamic_Background" type="TextureRect" parent="." unique_id=1286592636]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fe2o3")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1963667698]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.50980395)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=128928363]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1378208055]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Logo" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1468195355]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_1g8jr")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer" unique_id=970752272]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Play_Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=703897405]
+custom_minimum_size = Vector2(350, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_theme")
+theme_override_font_sizes/font_size = 20
+text = "Continue"
+
+[node name="New_Game" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2130816559]
+custom_minimum_size = Vector2(350, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_theme")
+theme_override_font_sizes/font_size = 20
+text = "New Game"
+
+[node name="Options_Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=709364033]
+custom_minimum_size = Vector2(350, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_theme")
+theme_override_font_sizes/font_size = 20
+text = "Options"
+
+[node name="Quit_button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=975224773]
+custom_minimum_size = Vector2(350, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_theme")
+theme_override_font_sizes/font_size = 20
+text = "Quit"
+
+[node name="BottomSpacer" type="Control" parent="MarginContainer/VBoxContainer" unique_id=823166494]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Fun_Fact" type="Label" parent="MarginContainer/VBoxContainer" unique_id=390189174]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/New_Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options_Button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit_button" to="." method="_on_quit_button_pressed"]
+
+[node name="NewGameWarning" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Overlay" type="ColorRect" parent="NewGameWarning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="Center" type="CenterContainer" parent="NewGameWarning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogBox" type="VBoxContainer" parent="NewGameWarning/Center"]
+layout_mode = 2
+custom_minimum_size = Vector2(420, 0)
+
+[node name="TopBar" type="HBoxContainer" parent="NewGameWarning/Center/DialogBox"]
+layout_mode = 2
+
+[node name="Title" type="PanelContainer" parent="NewGameWarning/Center/DialogBox/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+custom_minimum_size = Vector2(0, 24)
+theme = ExtResource("3_theme")
+
+[node name="Label" type="Label" parent="NewGameWarning/Center/DialogBox/TopBar/Title"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Warning"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SmallSpacer" type="Control" parent="NewGameWarning/Center/DialogBox/TopBar"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="NewGameWarning/Center/DialogBox/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+custom_minimum_size = Vector2(0, 24)
+theme = ExtResource("3_theme")
+text = "X"
+
+[node name="TopSpace" type="Control" parent="NewGameWarning/Center/DialogBox"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="ContentPanel" type="PanelContainer" parent="NewGameWarning/Center/DialogBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+custom_minimum_size = Vector2(420, 0)
+theme = ExtResource("3_theme")
+
+[node name="ContentMargin" type="MarginContainer" parent="NewGameWarning/Center/DialogBox/ContentPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Message" type="Label" parent="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Starting a new game will erase all existing save data on this device. Are you sure you want to continue?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 16
+
+[node name="CancelButton" type="Button" parent="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+theme = ExtResource("3_theme")
+text = "Cancel"
+
+[node name="ConfirmButton" type="Button" parent="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+theme = ExtResource("3_theme")
+text = "Yes, Start New Game"
+
+[node name="ExitWarning" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Overlay" type="ColorRect" parent="ExitWarning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="Center" type="CenterContainer" parent="ExitWarning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogBox" type="VBoxContainer" parent="ExitWarning/Center"]
+layout_mode = 2
+custom_minimum_size = Vector2(380, 0)
+
+[node name="TopBar" type="HBoxContainer" parent="ExitWarning/Center/DialogBox"]
+layout_mode = 2
+
+[node name="Title" type="PanelContainer" parent="ExitWarning/Center/DialogBox/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+custom_minimum_size = Vector2(0, 24)
+theme = ExtResource("3_theme")
+
+[node name="Label" type="Label" parent="ExitWarning/Center/DialogBox/TopBar/Title"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Exit Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SmallSpacer" type="Control" parent="ExitWarning/Center/DialogBox/TopBar"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="ExitWarning/Center/DialogBox/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+custom_minimum_size = Vector2(0, 24)
+theme = ExtResource("3_theme")
+text = "X"
+
+[node name="TopSpace" type="Control" parent="ExitWarning/Center/DialogBox"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="ContentPanel" type="PanelContainer" parent="ExitWarning/Center/DialogBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+custom_minimum_size = Vector2(380, 0)
+theme = ExtResource("3_theme")
+
+[node name="ContentMargin" type="MarginContainer" parent="ExitWarning/Center/DialogBox/ContentPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Message" type="Label" parent="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Are you sure you want to quit the game?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 16
+
+[node name="CancelButton" type="Button" parent="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons"]
+custom_minimum_size = Vector2(130, 40)
+layout_mode = 2
+theme = ExtResource("3_theme")
+text = "Cancel"
+
+[node name="ConfirmButton" type="Button" parent="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons"]
+custom_minimum_size = Vector2(130, 40)
+layout_mode = 2
+theme = ExtResource("3_theme")
+text = "Yes, Exit"
+
+[connection signal="pressed" from="NewGameWarning/Center/DialogBox/TopBar/CloseButton" to="." method="_on_new_game_close"]
+[connection signal="pressed" from="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons/CancelButton" to="." method="_on_new_game_close"]
+[connection signal="pressed" from="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons/ConfirmButton" to="." method="_on_new_game_confirmed"]
+[connection signal="pressed" from="ExitWarning/Center/DialogBox/TopBar/CloseButton" to="." method="_on_exit_close"]
+[connection signal="pressed" from="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons/CancelButton" to="." method="_on_exit_close"]
+[connection signal="pressed" from="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons/ConfirmButton" to="." method="_on_exit_confirmed"]

@@ -1,0 +1,251 @@
+[gd_scene format=3 uid="uid://mqw2crjyxf38"]
+
+[ext_resource type="Script" uid="uid://etowufh76ai1" path="res://scripts/game_settings.gd" id="1_wsjba"]
+[ext_resource type="Texture2D" uid="uid://dbmukcqrf5v1c" path="res://assets/images/backgrounds/bg.png" id="2_25x5f"]
+[ext_resource type="Theme" uid="uid://bjx86n76ee57d" path="res://scenes/Themes/KennyMain.tres" id="4_5p0mn"]
+
+[node name="GameSettings" type="Control" unique_id=385020016]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wsjba")
+
+[node name="Dynamic_Background" type="TextureRect" parent="." unique_id=699987991]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_25x5f")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=240169327]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.50980395)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1081330952]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Layout" type="VBoxContainer" parent="MarginContainer" unique_id=1185882760]
+layout_mode = 2
+alignment = 1
+
+[node name="TopBar" type="HBoxContainer" parent="MarginContainer/Layout" unique_id=1186059607]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BackButton" type="Button" parent="MarginContainer/Layout/TopBar" unique_id=1672893795]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme = ExtResource("4_5p0mn")
+text = "Back"
+
+[node name="SmallSpacer" type="Control" parent="MarginContainer/Layout/TopBar" unique_id=1981869565]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Title" type="PanelContainer" parent="MarginContainer/Layout/TopBar" unique_id=612297782]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+theme = ExtResource("4_5p0mn")
+
+[node name="Label" type="Label" parent="MarginContainer/Layout/TopBar/Title" unique_id=2086897480]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopSpace" type="Control" parent="MarginContainer/Layout" unique_id=1427181967]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="ContentPanel" type="PanelContainer" parent="MarginContainer/Layout" unique_id=707886761]
+custom_minimum_size = Vector2(900, 380)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_5p0mn")
+
+[node name="ContentMargin" type="MarginContainer" parent="MarginContainer/Layout/ContentPanel" unique_id=1756724098]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin" unique_id=622079170]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Settings" type="VBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer" unique_id=1588247975]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="AudioLabel" type="Label" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings" unique_id=2128323231]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "AUDIO"
+
+[node name="MusicVolume" type="HBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings" unique_id=100087802]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/MusicVolume" unique_id=1995218792]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Music Volume"
+
+[node name="MusicOption" type="OptionButton" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/MusicVolume" unique_id=759992503]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="SFXVolume" type="HBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings" unique_id=859082242]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/SFXVolume" unique_id=139933241]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Effects Volume"
+
+[node name="SFXOption" type="OptionButton" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/SFXVolume" unique_id=1015466870]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="Sep1" type="HSeparator" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings" unique_id=804287047]
+layout_mode = 2
+
+[node name="ReadingLabel" type="Label" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings" unique_id=588881520]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "READING & ACCESSIBILITY"
+
+[node name="TextSpeed" type="HBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings" unique_id=19691765]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/TextSpeed" unique_id=1096755526]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Text Speed"
+
+[node name="TextSpeedOption" type="OptionButton" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/TextSpeed" unique_id=1142669781]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="TextSize" type="HBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings" unique_id=1588403991]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/TextSize" unique_id=1756080352]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Text Size"
+
+[node name="TextSizeOption" type="OptionButton" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/TextSize" unique_id=715842068]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="DyslexiaFont" type="HBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings" unique_id=372419304]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/DyslexiaFont" unique_id=1232018125]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Dyslexia-Friendly Font"
+
+[node name="DyslexiaToggle" type="CheckButton" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/DyslexiaFont" unique_id=1507417235]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="Sep2" type="HSeparator" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings" unique_id=343176321]
+layout_mode = 2
+
+[node name="GameplayLabel" type="Label" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings" unique_id=339960112]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "GAMEPLAY HELPERS"
+
+[node name="ShowHints" type="HBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings" unique_id=883554639]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/ShowHints" unique_id=1816745253]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Show Hints"
+
+[node name="HintsToggle" type="CheckButton" parent="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/ShowHints" unique_id=699507575]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="BottomSpace" type="Control" parent="MarginContainer/Layout" unique_id=1242008703]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="InfoCard" type="PanelContainer" parent="MarginContainer/Layout" unique_id=1364239558]
+custom_minimum_size = Vector2(900, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_5p0mn")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Layout/InfoCard" unique_id=937819377]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 0
+
+[node name="InfoLabel" type="Label" parent="MarginContainer/Layout/InfoCard/MarginContainer" unique_id=719256385]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Select a setting to view more details here."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="MarginContainer/Layout/TopBar/BackButton" to="." method="_on_back_pressed"]
+[connection signal="item_selected" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/MusicVolume/MusicOption" to="." method="_on_music_option_selected"]
+[connection signal="item_selected" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/SFXVolume/SFXOption" to="." method="_on_sfx_option_selected"]
+[connection signal="item_selected" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/TextSpeed/TextSpeedOption" to="." method="_on_text_speed_selected"]
+[connection signal="item_selected" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/TextSize/TextSizeOption" to="." method="_on_text_size_selected"]
+[connection signal="toggled" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/DyslexiaFont/DyslexiaToggle" to="." method="_on_dyslexia_toggled"]
+[connection signal="toggled" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/ShowHints/HintsToggle" to="." method="_on_hints_toggled"]
