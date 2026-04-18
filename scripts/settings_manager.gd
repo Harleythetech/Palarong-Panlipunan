@@ -44,7 +44,7 @@ func get_text_size_scale() -> float:
 
 
 func apply_audio() -> void:
-	_set_bus_volume("Music", music_volume)
+	_set_bus_volume("BGM", music_volume)
 	_set_bus_volume("SFX", sfx_volume)
 
 

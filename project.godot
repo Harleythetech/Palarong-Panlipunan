@@ -15,12 +15,18 @@ run/main_scene="uid://memycltsmlum"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://72b4jqmn88aq"
+
 [autoload]
 
 SettingsManager="*res://scripts/settings_manager.gd"
 PlayerData="*res://scripts/player_data.gd"
 SaveManager="*res://scripts/save_manager.gd"
 SceneTransition="*res://scenes/ui/scene_transition.tscn"
+GameBgm="*uid://bot3ars1omg0s"
+UiSfxManager="*uid://drj6n4kpb2p0h"
 
 [display]
 

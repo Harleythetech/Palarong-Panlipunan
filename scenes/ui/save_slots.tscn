@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dpv5mqr2xlk8n"]
 
 [ext_resource type="Texture2D" uid="uid://dbmukcqrf5v1c" path="res://assets/images/backgrounds/bg.png" id="1_bg"]
-[ext_resource type="Script" path="res://scripts/save_slots.gd" id="2_script"]
+[ext_resource type="Script" uid="uid://b517ht2wlxwwe" path="res://scripts/save_slots.gd" id="2_script"]
 [ext_resource type="Theme" uid="uid://bjx86n76ee57d" path="res://scenes/Themes/KennyMain.tres" id="3_theme"]
 
-[node name="SaveSlots" type="Control"]
+[node name="SaveSlots" type="Control" unique_id=615233381]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_script")
 
-[node name="Dynamic_Background" type="TextureRect" parent="."]
+[node name="Dynamic_Background" type="TextureRect" parent="." unique_id=2001726643]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +24,7 @@ texture = ExtResource("1_bg")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=787532050]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,7 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.50980395)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=255229308]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,35 +45,35 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Layout" type="VBoxContainer" parent="MarginContainer"]
+[node name="Layout" type="VBoxContainer" parent="MarginContainer" unique_id=1843622959]
 layout_mode = 2
 alignment = 1
 
-[node name="TopBar" type="HBoxContainer" parent="MarginContainer/Layout"]
+[node name="TopBar" type="HBoxContainer" parent="MarginContainer/Layout" unique_id=1763938597]
+custom_minimum_size = Vector2(550, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-custom_minimum_size = Vector2(550, 0)
 
-[node name="BackButton" type="Button" parent="MarginContainer/Layout/TopBar"]
+[node name="BackButton" type="Button" parent="MarginContainer/Layout/TopBar" unique_id=1645237062]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
-custom_minimum_size = Vector2(0, 24)
 theme = ExtResource("3_theme")
 text = "Back"
 
-[node name="SmallSpacer" type="Control" parent="MarginContainer/Layout/TopBar"]
+[node name="SmallSpacer" type="Control" parent="MarginContainer/Layout/TopBar" unique_id=839720937]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Title" type="PanelContainer" parent="MarginContainer/Layout/TopBar"]
+[node name="Title" type="PanelContainer" parent="MarginContainer/Layout/TopBar" unique_id=81367870]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
-custom_minimum_size = Vector2(0, 24)
 theme = ExtResource("3_theme")
 
-[node name="Label" type="Label" parent="MarginContainer/Layout/TopBar/Title"]
+[node name="Label" type="Label" parent="MarginContainer/Layout/TopBar/Title" unique_id=122368919]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -81,33 +81,35 @@ text = "LOAD GAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TopSpace" type="Control" parent="MarginContainer/Layout"]
+[node name="TopSpace" type="Control" parent="MarginContainer/Layout" unique_id=1835660803]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 
-[node name="ContentPanel" type="PanelContainer" parent="MarginContainer/Layout"]
+[node name="ContentPanel" type="PanelContainer" parent="MarginContainer/Layout" unique_id=2145091609]
+custom_minimum_size = Vector2(550, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-custom_minimum_size = Vector2(550, 0)
 theme = ExtResource("3_theme")
 
-[node name="ContentMargin" type="MarginContainer" parent="MarginContainer/Layout/ContentPanel"]
+[node name="ContentMargin" type="MarginContainer" parent="MarginContainer/Layout/ContentPanel" unique_id=1551670933]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin" unique_id=1330930153]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="SlotsContainer" type="VBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer"]
+[node name="SlotsContainer" type="VBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer" unique_id=1037022479]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="BottomSpace" type="Control" parent="MarginContainer/Layout"]
+[node name="BottomSpace" type="Control" parent="MarginContainer/Layout" unique_id=1359035744]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 
+[connection signal="focus_entered" from="MarginContainer/Layout/TopBar/BackButton" to="." method="_on_back_button_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/Layout/TopBar/BackButton" to="." method="_on_back_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/Layout/TopBar/BackButton" to="." method="_on_back_pressed"]

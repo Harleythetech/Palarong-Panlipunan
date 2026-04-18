@@ -3,6 +3,14 @@ extends Control
 const VOLUME_LABELS := ["Mute", "Low", "Medium", "High"]
 const TEXT_SPEED_LABELS := ["Slow", "Normal", "Fast", "Instant"]
 const TEXT_SIZE_LABELS := ["Small", "Normal", "Large"]
+const INFO_TEXT := [
+	"Toggle a font designed to be easier to read for people with dyslexia. May not work with all text sizes.",
+	"Show hints during gameplay.",
+	"Adjust the text size. Larger sizes may cause text to overflow in some areas.",
+	"Adjust the text speed. Faster speeds may be harder to read.",
+	"Adjust the music volume.",
+	"Adjust the sound effects volume."
+]
 
 @onready var music_option: OptionButton = %MusicOption
 @onready var sfx_option: OptionButton = %SFXOption
@@ -11,6 +19,7 @@ const TEXT_SIZE_LABELS := ["Small", "Normal", "Large"]
 @onready var dyslexia_toggle: CheckButton = %DyslexiaToggle
 @onready var hints_toggle: CheckButton = %HintsToggle
 @onready var _margin: MarginContainer = $MarginContainer
+@onready var Info_label: Label = $MarginContainer/Layout/InfoCard/MarginContainer/InfoLabel
 
 
 func _ready() -> void:
@@ -47,6 +56,10 @@ func _populate_options() -> void:
 	for label in TEXT_SIZE_LABELS:
 		text_size_option.add_item(label)
 
+########################################
+# Settings Loader
+# This section loads the current settings from the SettingsManager and updates the UI elements to reflect those settings when the scene is ready.
+########################################
 
 func _load_current_settings() -> void:
 	music_option.selected = SettingsManager.music_volume
@@ -57,7 +70,13 @@ func _load_current_settings() -> void:
 	hints_toggle.button_pressed = SettingsManager.show_hints
 
 
+########################################
+# SETTINGS INTERACTIONS
+# These functions are called when the user interacts with the different settings options. They update the SettingsManager with the new values and apply changes immediately for audio and fonts.
+########################################
+
 func _on_back_pressed() -> void:
+	UiSfxManager.play_confirm()
 	SettingsManager.save_settings()
 	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 
@@ -88,3 +107,67 @@ func _on_dyslexia_toggled(toggled_on: bool) -> void:
 
 func _on_hints_toggled(toggled_on: bool) -> void:
 	SettingsManager.show_hints = toggled_on
+
+
+########################################
+# INFO CARD INTERACTIONS
+# These functions are used to update the info card on the right side of the screen when the user interacts with different settings.
+########################################
+
+# Music Volume
+
+func _on_music_volume_focus_entered() -> void:
+	Info_label.text = INFO_TEXT[4]
+
+func _on_music_volume_mouse_entered() -> void:
+	Info_label.text = INFO_TEXT[4]
+
+# SFX Volume
+
+func _on_sfx_volume_mouse_entered() -> void:
+	Info_label.text = INFO_TEXT[5]
+
+func _on_sfx_volume_focus_entered() -> void:
+	Info_label.text = INFO_TEXT[5]
+
+# Text Speed
+
+func _on_text_speed_mouse_entered() -> void:
+	Info_label.text = INFO_TEXT[3]
+
+func _on_text_speed_focus_entered() -> void:
+	Info_label.text = INFO_TEXT[3]
+
+# Adjust Text Size
+
+func _on_text_size_mouse_entered() -> void:
+	Info_label.text = INFO_TEXT[2]
+
+func _on_text_size_focus_entered() -> void:
+	Info_label.text = INFO_TEXT[2]
+
+# Dyslexia Font
+
+func _on_dyslexia_font_focus_entered() -> void:
+	Info_label.text = INFO_TEXT[0]
+
+
+func _on_dyslexia_font_mouse_entered() -> void:
+	Info_label.text = INFO_TEXT[0]
+
+# Show Hints
+
+func _on_show_hints_mouse_entered() -> void:
+	Info_label.text = INFO_TEXT[1]
+
+func _on_show_hints_focus_entered() -> void:
+	Info_label.text = INFO_TEXT[1]
+
+
+# Hover Function for back Button : Game Sounds
+
+func _on_back_button_mouse_entered() -> void:
+	UiSfxManager.play_hover()
+
+func _on_back_button_focus_entered() -> void:
+	UiSfxManager.play_hover()

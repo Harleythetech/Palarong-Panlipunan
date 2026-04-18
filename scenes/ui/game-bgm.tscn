@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bot3ars1omg0s"]
+
+[ext_resource type="AudioStream" uid="uid://cioe6lus6kxfy" path="res://assets/audio/Chao Kindergarten.mp3" id="1_xfxkr"]
+
+[node name="GameBgm" type="AudioStreamPlayer" unique_id=1295129058]
+stream = ExtResource("1_xfxkr")
+autoplay = true
+bus = &"BGM"
+parameters/looping = true

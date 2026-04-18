@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://drj6n4kpb2p0h"]
+
+[ext_resource type="AudioStream" uid="uid://dw8qaj8xffgf0" path="res://assets/audio/UI_SFX/001_Hover_01.wav" id="1_3hpud"]
+[ext_resource type="Script" uid="uid://bshbbfstf3qbg" path="res://scripts/ui_sfx_manager.gd" id="1_724jm"]
+[ext_resource type="AudioStream" uid="uid://bgqaylghtpxvi" path="res://assets/audio/UI_SFX/013_Confirm_03.wav" id="2_mx6rb"]
+
+[node name="UiSfxManager" type="Node" unique_id=78807638]
+script = ExtResource("1_724jm")
+
+[node name="Hover" type="AudioStreamPlayer" parent="." unique_id=168395647]
+stream = ExtResource("1_3hpud")
+bus = &"SFX"
+
+[node name="Confirm" type="AudioStreamPlayer" parent="." unique_id=391184995]
+stream = ExtResource("2_mx6rb")
+bus = &"SFX"

@@ -35,11 +35,34 @@ func _on_name_changed(_new_text: String) -> void:
 	_next_button.disabled = _name_input.text.strip_edges().length() == 0
 
 
+# Button Callbacks
+# These functions are connected to the respective buttons in the new game scene. They handle user interactions
+# This also includes Audio Cues for button actions.
+
 func _on_next_pressed() -> void:
+	UiSfxManager.play_confirm()
 	PlayerData.player_name = _name_input.text.strip_edges()
 	SceneTransition.change_scene("res://scenes/ui/select_gender.tscn")
 
 
 func _on_back_pressed() -> void:
+	UiSfxManager.play_confirm()
 	PlayerData.reset()
 	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+
+
+# Dedicated Hover Audio Cues
+
+func _on_back_button_focus_entered() -> void:
+	UiSfxManager.play_hover()
+
+
+func _on_back_button_mouse_entered() -> void:
+	UiSfxManager.play_hover()
+
+
+func _on_next_button_mouse_entered() -> void:
+	UiSfxManager.play_hover()
+
+func _on_next_button_focus_entered() -> void:
+	UiSfxManager.play_hover()

@@ -35,12 +35,17 @@ func _populate_slots() -> void:
 		btn.custom_minimum_size = Vector2(0, 56)
 		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 
+		# Button Hover / Focus Audio Cues
+		btn.mouse_entered.connect(UiSfxManager.play_hover)
+		btn.focus_entered.connect(UiSfxManager.play_hover)
+
 		if info.get("exists", false):
 			var gender_icon := "♂" if info.gender == "male" else "♀"
 			btn.text = "Slot %d  |  %s %s  |  Ch.%d  |  %s" % [
 				i, gender_icon, info.player_name, info.chapter, info.timestamp
 			]
 			var slot := i
+			btn.pressed.connect(UiSfxManager.play_confirm)
 			btn.pressed.connect(_on_slot_pressed.bind(slot))
 		else:
 			btn.text = "Slot %d  —  Empty" % i
@@ -55,4 +60,12 @@ func _on_slot_pressed(slot: int) -> void:
 
 
 func _on_back_pressed() -> void:
+	UiSfxManager.play_confirm()
 	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+
+
+func _on_back_button_mouse_entered() -> void:
+	UiSfxManager.play_hover()
+
+func _on_back_button_focus_entered() -> void:
+	UiSfxManager.play_hover()

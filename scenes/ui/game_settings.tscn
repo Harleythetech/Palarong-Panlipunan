@@ -235,6 +235,7 @@ theme_override_constants/margin_bottom = 0
 
 [node name="InfoLabel" type="Label" parent="MarginContainer/Layout/InfoCard/MarginContainer" unique_id=719256385]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Select a setting to view more details here."
@@ -242,10 +243,24 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[connection signal="focus_entered" from="MarginContainer/Layout/TopBar/BackButton" to="." method="_on_back_button_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/Layout/TopBar/BackButton" to="." method="_on_back_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/Layout/TopBar/BackButton" to="." method="_on_back_pressed"]
+[connection signal="focus_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/MusicVolume" to="." method="_on_music_volume_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/MusicVolume" to="." method="_on_music_volume_mouse_entered"]
 [connection signal="item_selected" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/MusicVolume/MusicOption" to="." method="_on_music_option_selected"]
+[connection signal="focus_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/SFXVolume" to="." method="_on_sfx_volume_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/SFXVolume" to="." method="_on_sfx_volume_mouse_entered"]
 [connection signal="item_selected" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/SFXVolume/SFXOption" to="." method="_on_sfx_option_selected"]
+[connection signal="focus_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/TextSpeed" to="." method="_on_text_speed_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/TextSpeed" to="." method="_on_text_speed_mouse_entered"]
 [connection signal="item_selected" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/TextSpeed/TextSpeedOption" to="." method="_on_text_speed_selected"]
+[connection signal="focus_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/TextSize" to="." method="_on_text_size_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/TextSize" to="." method="_on_text_size_mouse_entered"]
 [connection signal="item_selected" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/TextSize/TextSizeOption" to="." method="_on_text_size_selected"]
+[connection signal="focus_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/DyslexiaFont" to="." method="_on_dyslexia_font_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/DyslexiaFont" to="." method="_on_dyslexia_font_mouse_entered"]
 [connection signal="toggled" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/DyslexiaFont/DyslexiaToggle" to="." method="_on_dyslexia_toggled"]
+[connection signal="focus_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/ShowHints" to="." method="_on_show_hints_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/ShowHints" to="." method="_on_show_hints_mouse_entered"]
 [connection signal="toggled" from="MarginContainer/Layout/ContentPanel/ContentMargin/ScrollContainer/Settings/ShowHints/HintsToggle" to="." method="_on_hints_toggled"]

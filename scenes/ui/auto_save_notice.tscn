@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bx7m2qkr5napt"]
 
-[ext_resource type="Script" path="res://scripts/auto_save_notice.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://cl2ei2e542kds" path="res://scripts/auto_save_notice.gd" id="1_script"]
 [ext_resource type="Theme" uid="uid://bjx86n76ee57d" path="res://scenes/Themes/KennyMain.tres" id="2_theme"]
 
-[node name="AutoSaveNotice" type="Control"]
+[node name="AutoSaveNotice" type="Control" unique_id=1585488598]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
-[node name="BlackBackground" type="ColorRect" parent="."]
+[node name="BlackBackground" type="ColorRect" parent="." unique_id=1844269092]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Content" type="VBoxContainer" parent="."]
+[node name="Content" type="VBoxContainer" parent="." unique_id=999830983]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,29 +37,29 @@ grow_vertical = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="IconLabel" type="Label" parent="Content"]
+[node name="IconLabel" type="Label" parent="Content" unique_id=1250192623]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 48
-horizontal_alignment = 1
 text = "💾"
+horizontal_alignment = 1
 
-[node name="InfoLabel" type="Label" parent="Content"]
+[node name="InfoLabel" type="Label" parent="Content" unique_id=61742562]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 12
-horizontal_alignment = 1
 text = "This game uses Auto Save"
+horizontal_alignment = 1
 
-[node name="SubLabel" type="Label" parent="Content"]
+[node name="SubLabel" type="Label" parent="Content" unique_id=1875272846]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
 theme_override_font_sizes/font_size = 8
-horizontal_alignment = 1
 text = "Your progress will be saved automatically."
+horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="BottomMargin" type="MarginContainer" parent="."]
+[node name="BottomMargin" type="MarginContainer" parent="." unique_id=288445901]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -70,7 +70,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_bottom = 30
 
-[node name="ContinueButton" type="Button" parent="BottomMargin"]
+[node name="ContinueButton" type="Button" parent="BottomMargin" unique_id=1372420303]
 visible = false
 custom_minimum_size = Vector2(250, 48)
 layout_mode = 2
@@ -80,6 +80,8 @@ theme = ExtResource("2_theme")
 theme_override_font_sizes/font_size = 14
 text = "Continue"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1818846222]
 
+[connection signal="focus_entered" from="BottomMargin/ContinueButton" to="." method="_on_continue_button_focus_entered"]
+[connection signal="mouse_entered" from="BottomMargin/ContinueButton" to="." method="_on_continue_button_mouse_entered"]
 [connection signal="pressed" from="BottomMargin/ContinueButton" to="." method="_on_continue_pressed"]

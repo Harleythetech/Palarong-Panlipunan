@@ -9,6 +9,9 @@ func _ready() -> void:
 	modulate = Color(1, 1, 1, 0)
 	_continue_button.visible = false
 
+	# Slowly fade music out
+	var fade_out := create_tween()
+	fade_out.tween_property(GameBgm, "volume_db", -80.0, 3.0)
 	# Fade in from black
 	var fade_in := create_tween()
 	fade_in.tween_property(self , "modulate:a", 1.0, 0.6)
@@ -19,7 +22,6 @@ func _ready() -> void:
 	_timer.one_shot = true
 	_timer.timeout.connect(_on_timeout)
 	_timer.start()
-
 
 func _start_glow() -> void:
 	var glow := create_tween().set_loops()
@@ -35,4 +37,12 @@ func _on_timeout() -> void:
 
 
 func _on_continue_pressed() -> void:
+	UiSfxManager.play_confirm()
 	get_tree().change_scene_to_file("res://scenes/ui/tutorial_placeholder.tscn")
+
+
+func _on_continue_button_mouse_entered() -> void:
+	UiSfxManager.play_hover()
+
+func _on_continue_button_focus_entered() -> void:
+	UiSfxManager.play_hover()

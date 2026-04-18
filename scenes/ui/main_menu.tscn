@@ -105,12 +105,7 @@ theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play_Button" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/New_Game" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options_Button" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit_button" to="." method="_on_quit_button_pressed"]
-
-[node name="NewGameWarning" type="Control" parent="."]
+[node name="NewGameWarning" type="Control" parent="." unique_id=1455970780]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -119,7 +114,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Overlay" type="ColorRect" parent="NewGameWarning"]
+[node name="Overlay" type="ColorRect" parent="NewGameWarning" unique_id=1536019484]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -128,7 +123,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5)
 
-[node name="Center" type="CenterContainer" parent="NewGameWarning"]
+[node name="Center" type="CenterContainer" parent="NewGameWarning" unique_id=723497745]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -136,21 +131,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DialogBox" type="VBoxContainer" parent="NewGameWarning/Center"]
-layout_mode = 2
+[node name="DialogBox" type="VBoxContainer" parent="NewGameWarning/Center" unique_id=1570698421]
 custom_minimum_size = Vector2(420, 0)
-
-[node name="TopBar" type="HBoxContainer" parent="NewGameWarning/Center/DialogBox"]
 layout_mode = 2
 
-[node name="Title" type="PanelContainer" parent="NewGameWarning/Center/DialogBox/TopBar"]
+[node name="TopBar" type="HBoxContainer" parent="NewGameWarning/Center/DialogBox" unique_id=860144574]
+layout_mode = 2
+
+[node name="Title" type="PanelContainer" parent="NewGameWarning/Center/DialogBox/TopBar" unique_id=345477391]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
-custom_minimum_size = Vector2(0, 24)
 theme = ExtResource("3_theme")
 
-[node name="Label" type="Label" parent="NewGameWarning/Center/DialogBox/TopBar/Title"]
+[node name="Label" type="Label" parent="NewGameWarning/Center/DialogBox/TopBar/Title" unique_id=1773422330]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -158,64 +153,52 @@ text = "Warning"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SmallSpacer" type="Control" parent="NewGameWarning/Center/DialogBox/TopBar"]
-custom_minimum_size = Vector2(8, 0)
-layout_mode = 2
-
-[node name="CloseButton" type="Button" parent="NewGameWarning/Center/DialogBox/TopBar"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.3
-custom_minimum_size = Vector2(0, 24)
-theme = ExtResource("3_theme")
-text = "X"
-
-[node name="TopSpace" type="Control" parent="NewGameWarning/Center/DialogBox"]
+[node name="TopSpace" type="Control" parent="NewGameWarning/Center/DialogBox" unique_id=164575300]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="ContentPanel" type="PanelContainer" parent="NewGameWarning/Center/DialogBox"]
+[node name="ContentPanel" type="PanelContainer" parent="NewGameWarning/Center/DialogBox" unique_id=855766592]
+custom_minimum_size = Vector2(420, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-custom_minimum_size = Vector2(420, 0)
 theme = ExtResource("3_theme")
 
-[node name="ContentMargin" type="MarginContainer" parent="NewGameWarning/Center/DialogBox/ContentPanel"]
+[node name="ContentMargin" type="MarginContainer" parent="NewGameWarning/Center/DialogBox/ContentPanel" unique_id=1679865624]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBox" type="VBoxContainer" parent="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin"]
+[node name="VBox" type="VBoxContainer" parent="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin" unique_id=17879208]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Message" type="Label" parent="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox"]
+[node name="Message" type="Label" parent="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox" unique_id=316609200]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Starting a new game will erase all existing save data on this device. Are you sure you want to continue?"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Buttons" type="HBoxContainer" parent="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox"]
+[node name="Buttons" type="HBoxContainer" parent="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox" unique_id=1748805372]
 layout_mode = 2
-alignment = 1
 theme_override_constants/separation = 16
+alignment = 1
 
-[node name="CancelButton" type="Button" parent="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons"]
+[node name="CancelButton" type="Button" parent="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons" unique_id=1760891841]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
 theme = ExtResource("3_theme")
 text = "Cancel"
 
-[node name="ConfirmButton" type="Button" parent="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons"]
+[node name="ConfirmButton" type="Button" parent="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons" unique_id=106681450]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
 theme = ExtResource("3_theme")
 text = "Yes, Start New Game"
 
-[node name="ExitWarning" type="Control" parent="."]
+[node name="ExitWarning" type="Control" parent="." unique_id=1656131433]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -224,7 +207,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Overlay" type="ColorRect" parent="ExitWarning"]
+[node name="Overlay" type="ColorRect" parent="ExitWarning" unique_id=242869461]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -233,7 +216,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5)
 
-[node name="Center" type="CenterContainer" parent="ExitWarning"]
+[node name="Center" type="CenterContainer" parent="ExitWarning" unique_id=922581462]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -241,21 +224,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DialogBox" type="VBoxContainer" parent="ExitWarning/Center"]
-layout_mode = 2
+[node name="DialogBox" type="VBoxContainer" parent="ExitWarning/Center" unique_id=1092997460]
 custom_minimum_size = Vector2(380, 0)
-
-[node name="TopBar" type="HBoxContainer" parent="ExitWarning/Center/DialogBox"]
 layout_mode = 2
 
-[node name="Title" type="PanelContainer" parent="ExitWarning/Center/DialogBox/TopBar"]
+[node name="TopBar" type="HBoxContainer" parent="ExitWarning/Center/DialogBox" unique_id=1651174808]
+layout_mode = 2
+
+[node name="Title" type="PanelContainer" parent="ExitWarning/Center/DialogBox/TopBar" unique_id=707893085]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
-custom_minimum_size = Vector2(0, 24)
 theme = ExtResource("3_theme")
 
-[node name="Label" type="Label" parent="ExitWarning/Center/DialogBox/TopBar/Title"]
+[node name="Label" type="Label" parent="ExitWarning/Center/DialogBox/TopBar/Title" unique_id=1829781670]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -263,66 +246,72 @@ text = "Exit Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SmallSpacer" type="Control" parent="ExitWarning/Center/DialogBox/TopBar"]
-custom_minimum_size = Vector2(8, 0)
-layout_mode = 2
-
-[node name="CloseButton" type="Button" parent="ExitWarning/Center/DialogBox/TopBar"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.3
-custom_minimum_size = Vector2(0, 24)
-theme = ExtResource("3_theme")
-text = "X"
-
-[node name="TopSpace" type="Control" parent="ExitWarning/Center/DialogBox"]
+[node name="TopSpace" type="Control" parent="ExitWarning/Center/DialogBox" unique_id=2067687308]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="ContentPanel" type="PanelContainer" parent="ExitWarning/Center/DialogBox"]
+[node name="ContentPanel" type="PanelContainer" parent="ExitWarning/Center/DialogBox" unique_id=1603484768]
+custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-custom_minimum_size = Vector2(380, 0)
 theme = ExtResource("3_theme")
 
-[node name="ContentMargin" type="MarginContainer" parent="ExitWarning/Center/DialogBox/ContentPanel"]
+[node name="ContentMargin" type="MarginContainer" parent="ExitWarning/Center/DialogBox/ContentPanel" unique_id=863420414]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBox" type="VBoxContainer" parent="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin"]
+[node name="VBox" type="VBoxContainer" parent="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin" unique_id=679088233]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Message" type="Label" parent="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox"]
+[node name="Message" type="Label" parent="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox" unique_id=1355921414]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Are you sure you want to quit the game?"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Buttons" type="HBoxContainer" parent="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox"]
+[node name="Buttons" type="HBoxContainer" parent="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox" unique_id=1163451882]
 layout_mode = 2
-alignment = 1
 theme_override_constants/separation = 16
+alignment = 1
 
-[node name="CancelButton" type="Button" parent="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons"]
+[node name="CancelButton" type="Button" parent="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons" unique_id=1938703990]
 custom_minimum_size = Vector2(130, 40)
 layout_mode = 2
 theme = ExtResource("3_theme")
 text = "Cancel"
 
-[node name="ConfirmButton" type="Button" parent="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons"]
+[node name="ConfirmButton" type="Button" parent="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons" unique_id=150835468]
 custom_minimum_size = Vector2(130, 40)
 layout_mode = 2
 theme = ExtResource("3_theme")
 text = "Yes, Exit"
 
-[connection signal="pressed" from="NewGameWarning/Center/DialogBox/TopBar/CloseButton" to="." method="_on_new_game_close"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Play_Button" to="." method="_on_play_button_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Play_Button" to="." method="_on_play_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/New_Game" to="." method="_on_new_game_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/New_Game" to="." method="_on_new_game_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/New_Game" to="." method="_on_new_game_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Options_Button" to="." method="_on_options_button_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Options_Button" to="." method="_on_options_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options_Button" to="." method="_on_options_button_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Quit_button" to="." method="_on_quit_button_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Quit_button" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="focus_entered" from="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons/CancelButton" to="." method="_on_cancel_button_focus_entered"]
+[connection signal="mouse_entered" from="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons/CancelButton" to="." method="_on_cancel_button_mouse_entered"]
 [connection signal="pressed" from="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons/CancelButton" to="." method="_on_new_game_close"]
+[connection signal="focus_entered" from="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons/ConfirmButton" to="." method="_on_confirm_button_focus_entered"]
+[connection signal="mouse_entered" from="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons/ConfirmButton" to="." method="_on_confirm_button_mouse_entered"]
 [connection signal="pressed" from="NewGameWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons/ConfirmButton" to="." method="_on_new_game_confirmed"]
-[connection signal="pressed" from="ExitWarning/Center/DialogBox/TopBar/CloseButton" to="." method="_on_exit_close"]
+[connection signal="focus_entered" from="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons/CancelButton" to="." method="_on_cancel_button_focus_entered"]
+[connection signal="mouse_entered" from="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons/CancelButton" to="." method="_on_cancel_button_mouse_entered"]
 [connection signal="pressed" from="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons/CancelButton" to="." method="_on_exit_close"]
+[connection signal="focus_entered" from="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons/ConfirmButton" to="." method="_on_confirm_button_focus_entered"]
+[connection signal="mouse_entered" from="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons/ConfirmButton" to="." method="_on_confirm_button_mouse_entered"]
 [connection signal="pressed" from="ExitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons/ConfirmButton" to="." method="_on_exit_confirmed"]

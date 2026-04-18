@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dng3w8kqx1a5r"]
 
 [ext_resource type="Texture2D" uid="uid://dbmukcqrf5v1c" path="res://assets/images/backgrounds/bg.png" id="1_bg"]
-[ext_resource type="Script" path="res://scripts/new_game.gd" id="2_script"]
+[ext_resource type="Script" uid="uid://cca24vsddcfkd" path="res://scripts/new_game.gd" id="2_script"]
 [ext_resource type="Theme" uid="uid://bjx86n76ee57d" path="res://scenes/Themes/KennyMain.tres" id="3_theme"]
 
-[node name="NewGame" type="Control"]
+[node name="NewGame" type="Control" unique_id=354865166]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_script")
 
-[node name="Dynamic_Background" type="TextureRect" parent="."]
+[node name="Dynamic_Background" type="TextureRect" parent="." unique_id=1735535374]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +24,7 @@ texture = ExtResource("1_bg")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1256486220]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,7 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.50980395)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2050259262]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,35 +45,35 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Layout" type="VBoxContainer" parent="MarginContainer"]
+[node name="Layout" type="VBoxContainer" parent="MarginContainer" unique_id=1895937084]
 layout_mode = 2
 alignment = 1
 
-[node name="TopBar" type="HBoxContainer" parent="MarginContainer/Layout"]
+[node name="TopBar" type="HBoxContainer" parent="MarginContainer/Layout" unique_id=1699133762]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-custom_minimum_size = Vector2(500, 0)
 
-[node name="BackButton" type="Button" parent="MarginContainer/Layout/TopBar"]
+[node name="BackButton" type="Button" parent="MarginContainer/Layout/TopBar" unique_id=682209122]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
-custom_minimum_size = Vector2(0, 24)
 theme = ExtResource("3_theme")
 text = "Back"
 
-[node name="SmallSpacer" type="Control" parent="MarginContainer/Layout/TopBar"]
+[node name="SmallSpacer" type="Control" parent="MarginContainer/Layout/TopBar" unique_id=903646507]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Title" type="PanelContainer" parent="MarginContainer/Layout/TopBar"]
+[node name="Title" type="PanelContainer" parent="MarginContainer/Layout/TopBar" unique_id=1686745288]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
-custom_minimum_size = Vector2(0, 24)
 theme = ExtResource("3_theme")
 
-[node name="Label" type="Label" parent="MarginContainer/Layout/TopBar/Title"]
+[node name="Label" type="Label" parent="MarginContainer/Layout/TopBar/Title" unique_id=969581671]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -81,45 +81,45 @@ text = "NEW GAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TopSpace" type="Control" parent="MarginContainer/Layout"]
+[node name="TopSpace" type="Control" parent="MarginContainer/Layout" unique_id=1750081264]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 
-[node name="ContentPanel" type="PanelContainer" parent="MarginContainer/Layout"]
+[node name="ContentPanel" type="PanelContainer" parent="MarginContainer/Layout" unique_id=854354193]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-custom_minimum_size = Vector2(500, 0)
 theme = ExtResource("3_theme")
 
-[node name="ContentMargin" type="MarginContainer" parent="MarginContainer/Layout/ContentPanel"]
+[node name="ContentMargin" type="MarginContainer" parent="MarginContainer/Layout/ContentPanel" unique_id=1729969485]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin" unique_id=1331254275]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="NameSection" type="VBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer"]
+[node name="NameSection" type="VBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer" unique_id=1754309888]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="NameLabel" type="Label" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/NameSection"]
+[node name="NameLabel" type="Label" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/NameSection" unique_id=1805519384]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "Enter Your Name"
 
-[node name="NameInput" type="LineEdit" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/NameSection"]
-layout_mode = 2
+[node name="NameInput" type="LineEdit" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/NameSection" unique_id=279120947]
 custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 theme_override_font_sizes/font_size = 14
 placeholder_text = "Type your name..."
 max_length = 20
 
-[node name="NextButton" type="Button" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer"]
+[node name="NextButton" type="Button" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer" unique_id=1949518224]
 custom_minimum_size = Vector2(250, 48)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -128,9 +128,13 @@ theme_override_font_sizes/font_size = 16
 disabled = true
 text = "Next"
 
-[node name="BottomSpace" type="Control" parent="MarginContainer/Layout"]
+[node name="BottomSpace" type="Control" parent="MarginContainer/Layout" unique_id=818438567]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 
+[connection signal="focus_entered" from="MarginContainer/Layout/TopBar/BackButton" to="." method="_on_back_button_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/Layout/TopBar/BackButton" to="." method="_on_back_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/Layout/TopBar/BackButton" to="." method="_on_back_pressed"]
+[connection signal="focus_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/NextButton" to="." method="_on_next_button_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/NextButton" to="." method="_on_next_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/NextButton" to="." method="_on_next_pressed"]

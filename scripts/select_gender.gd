@@ -65,8 +65,12 @@ func _adapt_layout() -> void:
 	_margin.add_theme_constant_override("margin_right", margin_val)
 	_margin.add_theme_constant_override("margin_bottom", margin_val)
 
+# Button Callbacks
+# These functions are connected to the respective buttons in the new game scene. They handle user interactions
+# This also includes Audio Cues for button actions.
 
 func _on_male_pressed() -> void:
+	UiSfxManager.play_confirm()
 	_selected_gender = "male"
 	_male_button.add_theme_color_override("font_color", Color.YELLOW)
 	_female_button.remove_theme_color_override("font_color")
@@ -76,6 +80,7 @@ func _on_male_pressed() -> void:
 
 
 func _on_female_pressed() -> void:
+	UiSfxManager.play_confirm()
 	_selected_gender = "female"
 	_female_button.add_theme_color_override("font_color", Color.YELLOW)
 	_male_button.remove_theme_color_override("font_color")
@@ -85,6 +90,7 @@ func _on_female_pressed() -> void:
 
 
 func _on_confirm_pressed() -> void:
+	UiSfxManager.play_confirm()
 	PlayerData.setup(PlayerData.player_name, _selected_gender)
 
 	var slot := SaveManager.get_first_empty_slot()
@@ -96,4 +102,37 @@ func _on_confirm_pressed() -> void:
 
 
 func _on_back_pressed() -> void:
+	UiSfxManager.play_confirm()
 	SceneTransition.change_scene("res://scenes/ui/new_game.tscn")
+
+
+# Dedicated Hover Audio Cues
+
+func _on_back_button_focus_entered() -> void:
+	UiSfxManager.play_hover()
+
+func _on_back_button_mouse_entered() -> void:
+	UiSfxManager.play_hover()
+
+
+func _on_confirm_button_mouse_entered() -> void:
+	UiSfxManager.play_hover()
+
+
+func _on_confirm_button_focus_entered() -> void:
+	UiSfxManager.play_hover()
+
+
+func _on_female_button_mouse_entered() -> void:
+	UiSfxManager.play_hover()
+
+
+func _on_female_button_focus_entered() -> void:
+	UiSfxManager.play_hover()
+
+
+func _on_male_button_mouse_entered() -> void:
+	UiSfxManager.play_hover()
+
+func _on_male_button_focus_entered() -> void:
+	UiSfxManager.play_hover()
