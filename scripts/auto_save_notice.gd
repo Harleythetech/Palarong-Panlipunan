@@ -38,7 +38,7 @@ func _on_timeout() -> void:
 
 func _on_continue_pressed() -> void:
 	UiSfxManager.play_confirm()
-	get_tree().change_scene_to_file("res://scenes/ui/tutorial_placeholder.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/tutorial_start.tscn")
 
 
 func _on_continue_button_mouse_entered() -> void:

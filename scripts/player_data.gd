@@ -10,6 +10,10 @@ var chapter: int = 1
 var location: String = ""
 var knowledge_points: int = 0
 
+# UI state tracking
+var last_scene_path: String = ""  # Track the last game scene for returning from settings
+var return_to_pause_menu: bool = false  # Flag to show pause menu when returning from settings
+
 
 func setup(p_name: String, p_gender: String) -> void:
 	player_name = p_name

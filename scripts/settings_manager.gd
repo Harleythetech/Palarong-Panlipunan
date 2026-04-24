@@ -58,8 +58,12 @@ func _on_node_added(node: Node) -> void:
 	if node is Control:
 		var font: Font = _dyslexia_regular_font if dyslexia_font else _default_font
 		var scale: float = get_text_size_scale()
-		if node.has_theme_font_override("font"):
+		
+		# Apply font to all Control nodes that can display text
+		if node is Label or node is Button or node is RichTextLabel or node is LineEdit or node is TextEdit:
 			node.add_theme_font_override("font", font)
+		
+		# Apply font size scaling
 		if node.has_theme_font_size_override("font_size"):
 			var original: int = node.get_theme_font_size("font_size")
 			node.set_meta("_base_font_size", original)
@@ -70,36 +74,49 @@ func apply_fonts() -> void:
 	var font: Font
 	if dyslexia_font:
 		font = _dyslexia_regular_font
+		print("SettingsManager: Applying dyslexia font")
 	else:
 		font = _default_font
+		print("SettingsManager: Applying default font")
 	_theme.default_font = font
 	_update_font_overrides(get_tree().root, font)
 	settings_changed.emit()
 
 
 func _update_font_overrides(node: Node, font: Font) -> void:
-	if node is Control and node.has_theme_font_override("font"):
-		node.add_theme_font_override("font", font)
+	if node is Control:
+		# Apply font to all text-displaying Control nodes
+		if node is Label or node is Button or node is RichTextLabel or node is LineEdit or node is TextEdit:
+			node.add_theme_font_override("font", font)
 	for child in node.get_children():
 		_update_font_overrides(child, font)
 
 
 func apply_text_size() -> void:
 	var scale: float = get_text_size_scale()
+	print("SettingsManager: Applying text size scale: ", scale)
 	_theme.default_font_size = int(DEFAULT_FONT_SIZE * scale)
 	_update_font_size_overrides(get_tree().root, scale)
 	settings_changed.emit()
 
 
 func _update_font_size_overrides(node: Node, scale: float) -> void:
-	if node is Control and node.has_theme_font_size_override("font_size"):
-		var base_size: int
-		if node.has_meta("_base_font_size"):
-			base_size = node.get_meta("_base_font_size")
-		else:
-			base_size = node.get_theme_font_size("font_size")
-			node.set_meta("_base_font_size", base_size)
-		node.add_theme_font_size_override("font_size", int(base_size * scale))
+	if node is Control:
+		# Apply font size to all text-displaying Control nodes
+		if node is Label or node is Button or node is RichTextLabel or node is LineEdit or node is TextEdit:
+			var base_size: int
+			if node.has_meta("_base_font_size"):
+				base_size = node.get_meta("_base_font_size")
+			elif node.has_theme_font_size_override("font_size"):
+				base_size = node.get_theme_font_size("font_size")
+				node.set_meta("_base_font_size", base_size)
+			else:
+				# Get the default font size from theme or use DEFAULT_FONT_SIZE
+				base_size = node.get_theme_font_size("font_size") if node.get_theme_font_size("font_size") > 0 else DEFAULT_FONT_SIZE
+				node.set_meta("_base_font_size", base_size)
+			
+			node.add_theme_font_size_override("font_size", int(base_size * scale))
+	
 	for child in node.get_children():
 		_update_font_size_overrides(child, scale)
 

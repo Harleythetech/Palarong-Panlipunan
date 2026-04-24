@@ -1,0 +1,294 @@
+[gd_scene format=3 uid="uid://c8xqy5n7m8wqp"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_pause"]
+[ext_resource type="Theme" uid="uid://bjx86n76ee57d" path="res://scenes/Themes/KennyMain.tres" id="2_theme"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_pause")
+
+[node name="Overlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="Center" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuPanel" type="VBoxContainer" parent="Center"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="Center/MenuPanel"]
+layout_mode = 2
+
+[node name="Title" type="PanelContainer" parent="Center/MenuPanel/TopBar"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_theme")
+
+[node name="Label" type="Label" parent="Center/MenuPanel/TopBar/Title"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopSpace" type="Control" parent="Center/MenuPanel"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="ContentPanel" type="PanelContainer" parent="Center/MenuPanel"]
+layout_mode = 2
+theme = ExtResource("2_theme")
+
+[node name="ContentMargin" type="MarginContainer" parent="Center/MenuPanel/ContentPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="Center/MenuPanel/ContentPanel/ContentMargin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ResumeButton" type="Button" parent="Center/MenuPanel/ContentPanel/ContentMargin/ButtonsVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(350, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_theme")
+theme_override_font_sizes/font_size = 20
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="Center/MenuPanel/ContentPanel/ContentMargin/ButtonsVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(350, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_theme")
+theme_override_font_sizes/font_size = 20
+text = "Settings"
+
+[node name="SaveButton" type="Button" parent="Center/MenuPanel/ContentPanel/ContentMargin/ButtonsVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(350, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_theme")
+theme_override_font_sizes/font_size = 20
+text = "Save Game"
+
+[node name="MainMenuButton" type="Button" parent="Center/MenuPanel/ContentPanel/ContentMargin/ButtonsVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(350, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_theme")
+theme_override_font_sizes/font_size = 20
+text = "Main Menu"
+
+[node name="QuitButton" type="Button" parent="Center/MenuPanel/ContentPanel/ContentMargin/ButtonsVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(350, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_theme")
+theme_override_font_sizes/font_size = 20
+text = "Quit Game"
+
+[node name="MainMenuWarning" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Overlay" type="ColorRect" parent="MainMenuWarning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="Center" type="CenterContainer" parent="MainMenuWarning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogBox" type="VBoxContainer" parent="MainMenuWarning/Center"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="MainMenuWarning/Center/DialogBox"]
+layout_mode = 2
+
+[node name="Title" type="PanelContainer" parent="MainMenuWarning/Center/DialogBox/TopBar"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_theme")
+
+[node name="Label" type="Label" parent="MainMenuWarning/Center/DialogBox/TopBar/Title"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Return to Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopSpace" type="Control" parent="MainMenuWarning/Center/DialogBox"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="ContentPanel" type="PanelContainer" parent="MainMenuWarning/Center/DialogBox"]
+layout_mode = 2
+theme = ExtResource("2_theme")
+
+[node name="ContentMargin" type="MarginContainer" parent="MainMenuWarning/Center/DialogBox/ContentPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="MainMenuWarning/Center/DialogBox/ContentPanel/ContentMargin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Message" type="Label" parent="MainMenuWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Any unsaved progress will be lost. Are you sure you want to return to the main menu?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="MainMenuWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="MainMenuCancelButton" type="Button" parent="MainMenuWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+theme = ExtResource("2_theme")
+text = "Cancel"
+
+[node name="MainMenuConfirmButton" type="Button" parent="MainMenuWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+theme = ExtResource("2_theme")
+text = "Yes, Exit to Menu"
+
+[node name="QuitWarning" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Overlay" type="ColorRect" parent="QuitWarning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="Center" type="CenterContainer" parent="QuitWarning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogBox" type="VBoxContainer" parent="QuitWarning/Center"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="QuitWarning/Center/DialogBox"]
+layout_mode = 2
+
+[node name="Title" type="PanelContainer" parent="QuitWarning/Center/DialogBox/TopBar"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_theme")
+
+[node name="Label" type="Label" parent="QuitWarning/Center/DialogBox/TopBar/Title"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Quit Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopSpace" type="Control" parent="QuitWarning/Center/DialogBox"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="ContentPanel" type="PanelContainer" parent="QuitWarning/Center/DialogBox"]
+layout_mode = 2
+theme = ExtResource("2_theme")
+
+[node name="ContentMargin" type="MarginContainer" parent="QuitWarning/Center/DialogBox/ContentPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="QuitWarning/Center/DialogBox/ContentPanel/ContentMargin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Message" type="Label" parent="QuitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Any unsaved progress will be lost. Are you sure you want to quit?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="QuitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="QuitCancelButton" type="Button" parent="QuitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 40)
+layout_mode = 2
+theme = ExtResource("2_theme")
+text = "Cancel"
+
+[node name="QuitConfirmButton" type="Button" parent="QuitWarning/Center/DialogBox/ContentPanel/ContentMargin/VBox/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 40)
+layout_mode = 2
+theme = ExtResource("2_theme")
+text = "Yes, Quit"

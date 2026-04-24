@@ -1,5 +1,9 @@
 extends Control
 
+# Track where settings was opened from
+enum SettingsSource { MAIN_MENU, PAUSE_MENU }
+var return_to_source: SettingsSource = SettingsSource.MAIN_MENU
+
 const VOLUME_LABELS := ["Mute", "Low", "Medium", "High"]
 const TEXT_SPEED_LABELS := ["Slow", "Normal", "Fast", "Instant"]
 const TEXT_SIZE_LABELS := ["Small", "Normal", "Large"]
@@ -23,6 +27,14 @@ const INFO_TEXT := [
 
 
 func _ready() -> void:
+	# Check if we came from pause menu using the flag
+	if PlayerData.return_to_pause_menu:
+		return_to_source = SettingsSource.PAUSE_MENU
+		print("GameSettings: Opened from PAUSE_MENU (flag detected)")
+	else:
+		return_to_source = SettingsSource.MAIN_MENU
+		print("GameSettings: Opened from MAIN_MENU")
+	
 	_populate_options()
 	_load_current_settings()
 	_adapt_layout()
@@ -78,7 +90,19 @@ func _load_current_settings() -> void:
 func _on_back_pressed() -> void:
 	UiSfxManager.play_confirm()
 	SettingsManager.save_settings()
-	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+	
+	print("GameSettings: return_to_source = ", return_to_source)
+	print("GameSettings: PlayerData.return_to_pause_menu = ", PlayerData.return_to_pause_menu)
+	print("GameSettings: PlayerData.last_scene_path = ", PlayerData.last_scene_path)
+	
+	if return_to_source == SettingsSource.PAUSE_MENU:
+		print("GameSettings: Returning to pause menu")
+		# Return to the paused game scene
+		get_tree().change_scene_to_file(PlayerData.last_scene_path if PlayerData.last_scene_path else "res://scenes/ui/tutorial_start.tscn")
+	else:
+		print("GameSettings: Returning to main menu")
+		PlayerData.return_to_pause_menu = false  # Clear the flag
+		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 
 
 func _on_music_option_selected(index: int) -> void:

@@ -1,54 +1,21 @@
 extends Control
 
-const ANIM_FPS := 6.0
-const ARIN_FRAME_SIZE := Vector2(32, 32)
-const ARIN_FRAME_COUNT := 4
-const LIRA_FRAME_SIZE := Vector2(34, 34)
-const LIRA_FRAME_COUNT := 5
-
 var _selected_gender: String = ""
-var _anim_timer: float = 0.0
-var _anim_frame: int = 0
-var _arin_atlas: AtlasTexture
-var _lira_atlas: AtlasTexture
 
 @onready var _margin: MarginContainer = $MarginContainer
-@onready var _male_button: Button = $MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/MaleOption/MaleButton
-@onready var _female_button: Button = $MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/FemaleOption/FemaleButton
+@onready var _male_button: Button = $MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/MaleButton
+@onready var _female_button: Button = $MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/FemaleButton
 @onready var _confirm_button: Button = $MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/ConfirmButton
 @onready var _gender_label: Label = $MarginContainer/Layout/InfoCard/MarginContainer/GenderInfo
 @onready var _name_display: Label = $MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/NameDisplay
-@onready var _arin_sprite: TextureRect = $MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/MaleOption/ArinSprite
-@onready var _lira_sprite: TextureRect = $MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/FemaleOption/LiraSprite
 @onready var _info_card: PanelContainer = $MarginContainer/Layout/InfoCard
 
 
 func _ready() -> void:
 	_confirm_button.disabled = true
 	_name_display.text = "Playing as: %s" % PlayerData.player_name
-
-	_arin_atlas = AtlasTexture.new()
-	_arin_atlas.atlas = load("res://assets/sprites/medieval/adventurer_03.png")
-	_arin_atlas.region = Rect2(0, 0, ARIN_FRAME_SIZE.x, ARIN_FRAME_SIZE.y)
-	_arin_sprite.texture = _arin_atlas
-
-	_lira_atlas = AtlasTexture.new()
-	_lira_atlas.atlas = load("res://assets/sprites/medieval/adventurer_02.png")
-	_lira_atlas.region = Rect2(0, 0, LIRA_FRAME_SIZE.x, LIRA_FRAME_SIZE.y)
-	_lira_sprite.texture = _lira_atlas
-
 	_adapt_layout()
 	resized.connect(_adapt_layout)
-
-
-func _process(delta: float) -> void:
-	_anim_timer += delta
-	var frame_duration := 1.0 / ANIM_FPS
-	if _anim_timer >= frame_duration:
-		_anim_timer -= frame_duration
-		_anim_frame += 1
-		_arin_atlas.region = Rect2((_anim_frame % ARIN_FRAME_COUNT) * ARIN_FRAME_SIZE.x, 0, ARIN_FRAME_SIZE.x, ARIN_FRAME_SIZE.y)
-		_lira_atlas.region = Rect2((_anim_frame % LIRA_FRAME_COUNT) * LIRA_FRAME_SIZE.x, 0, LIRA_FRAME_SIZE.x, LIRA_FRAME_SIZE.y)
 
 
 func _adapt_layout() -> void:
@@ -74,7 +41,7 @@ func _on_male_pressed() -> void:
 	_selected_gender = "male"
 	_male_button.add_theme_color_override("font_color", Color.YELLOW)
 	_female_button.remove_theme_color_override("font_color")
-	_gender_label.text = "You will play as Arin. Lira will be your companion."
+	_gender_label.text = "You selected: Boy"
 	_info_card.visible = true
 	_confirm_button.disabled = false
 
@@ -84,7 +51,7 @@ func _on_female_pressed() -> void:
 	_selected_gender = "female"
 	_female_button.add_theme_color_override("font_color", Color.YELLOW)
 	_male_button.remove_theme_color_override("font_color")
-	_gender_label.text = "You will play as Lira. Arin will be your companion."
+	_gender_label.text = "You selected: Girl"
 	_info_card.visible = true
 	_confirm_button.disabled = false
 

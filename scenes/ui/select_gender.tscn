@@ -117,52 +117,26 @@ theme_override_constants/separation = 8
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
-text = "Select Your Character"
+text = "Are you a boy or a girl?"
 
 [node name="GenderButtons" type="HBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection" unique_id=147413498]
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="MaleOption" type="VBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons" unique_id=2092440244]
-layout_mode = 2
-theme_override_constants/separation = 8
-alignment = 1
-
-[node name="ArinSprite" type="TextureRect" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/MaleOption" unique_id=1530667235]
-texture_filter = 1
-custom_minimum_size = Vector2(96, 96)
-layout_mode = 2
-size_flags_horizontal = 4
-expand_mode = 1
-stretch_mode = 4
-
-[node name="MaleButton" type="Button" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/MaleOption" unique_id=1076920509]
+[node name="MaleButton" type="Button" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons" unique_id=1076920509]
 custom_minimum_size = Vector2(180, 48)
 layout_mode = 2
 theme = ExtResource("3_theme")
 theme_override_font_sizes/font_size = 14
-text = "Arin (Male)"
+text = "Boy"
 
-[node name="FemaleOption" type="VBoxContainer" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons" unique_id=247519501]
-layout_mode = 2
-theme_override_constants/separation = 8
-alignment = 1
-
-[node name="LiraSprite" type="TextureRect" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/FemaleOption" unique_id=1930615543]
-texture_filter = 1
-custom_minimum_size = Vector2(96, 96)
-layout_mode = 2
-size_flags_horizontal = 4
-expand_mode = 1
-stretch_mode = 4
-
-[node name="FemaleButton" type="Button" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/FemaleOption" unique_id=1653988216]
+[node name="FemaleButton" type="Button" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons" unique_id=1653988216]
 custom_minimum_size = Vector2(180, 48)
 layout_mode = 2
 theme = ExtResource("3_theme")
 theme_override_font_sizes/font_size = 14
-text = "Lira (Female)"
+text = "Girl"
 
 [node name="ConfirmButton" type="Button" parent="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer" unique_id=1081929615]
 custom_minimum_size = Vector2(250, 48)
@@ -201,12 +175,12 @@ autowrap_mode = 2
 [connection signal="focus_entered" from="MarginContainer/Layout/TopBar/BackButton" to="." method="_on_back_button_focus_entered"]
 [connection signal="mouse_entered" from="MarginContainer/Layout/TopBar/BackButton" to="." method="_on_back_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/Layout/TopBar/BackButton" to="." method="_on_back_pressed"]
-[connection signal="focus_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/MaleOption/MaleButton" to="." method="_on_male_button_focus_entered"]
-[connection signal="mouse_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/MaleOption/MaleButton" to="." method="_on_male_button_mouse_entered"]
-[connection signal="pressed" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/MaleOption/MaleButton" to="." method="_on_male_pressed"]
-[connection signal="focus_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/FemaleOption/FemaleButton" to="." method="_on_female_button_focus_entered"]
-[connection signal="mouse_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/FemaleOption/FemaleButton" to="." method="_on_female_button_mouse_entered"]
-[connection signal="pressed" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/FemaleOption/FemaleButton" to="." method="_on_female_pressed"]
+[connection signal="focus_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/MaleButton" to="." method="_on_male_button_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/MaleButton" to="." method="_on_male_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/MaleButton" to="." method="_on_male_pressed"]
+[connection signal="focus_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/FemaleButton" to="." method="_on_female_button_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/FemaleButton" to="." method="_on_female_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/GenderSection/GenderButtons/FemaleButton" to="." method="_on_female_pressed"]
 [connection signal="focus_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/ConfirmButton" to="." method="_on_confirm_button_focus_entered"]
 [connection signal="mouse_entered" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/ConfirmButton" to="." method="_on_confirm_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/Layout/ContentPanel/ContentMargin/VBoxContainer/ConfirmButton" to="." method="_on_confirm_pressed"]

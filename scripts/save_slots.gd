@@ -56,7 +56,7 @@ func _populate_slots() -> void:
 
 func _on_slot_pressed(slot: int) -> void:
 	if SaveManager.load_game(slot):
-		SceneTransition.change_scene("res://scenes/ui/tutorial_placeholder.tscn")
+		SceneTransition.change_scene("res://scenes/ui/tutorial_start.tscn")
 
 
 func _on_back_pressed() -> void:
